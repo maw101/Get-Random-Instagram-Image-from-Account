@@ -1,4 +1,4 @@
-# Get-Random-Instagram-Image-from-Account
+# Get Random Image from an Instagram Account
 Get and display a random image from a given Instagram Account
 
 ## Requirements
