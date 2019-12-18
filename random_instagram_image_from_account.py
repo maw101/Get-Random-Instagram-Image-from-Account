@@ -76,3 +76,7 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description='Parse Instagram Account Name')
 	parser.add_argument("account_name", nargs=1, help='Instagram Account Name')
 	args = parser.parse_args()
+
+	# get account name argument value
+	ACCOUNT_NAME = args.account_name[0]
+	print("Retrieving Random Image from Instagram Account @%s" % ACCOUNT_NAME)
