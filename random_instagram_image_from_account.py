@@ -1,3 +1,13 @@
+"""
+Provides functions to get a random image URL of a given Instagram account and 
+the facility to display this.
+
+This module provides functions to randomly get an images URL from a specified Instagram
+account - given as a command line argument. Functions also allow for displaying of an 
+image at a given URL.
+"""
+
+
 import requests, json, random, argparse
 # imports for displaying the image
 from PIL import Image
