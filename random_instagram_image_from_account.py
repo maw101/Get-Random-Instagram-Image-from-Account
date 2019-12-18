@@ -1,4 +1,4 @@
-import requests, json, random
+import requests, json, random, argparse
 # imports for displaying the image
 from PIL import Image
 from io import BytesIO
@@ -69,3 +69,10 @@ def display_image_at_url(images_url):
 	else:
 		img = Image.open(BytesIO(image_response.content))
 		img.show()
+
+
+if __name__ == '__main__':
+	# parse command line arguments
+	parser = argparse.ArgumentParser(description='Parse Instagram Account Name')
+	parser.add_argument("account_name", nargs=1, help='Instagram Account Name')
+	args = parser.parse_args()
