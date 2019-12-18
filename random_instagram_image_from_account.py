@@ -1,4 +1,4 @@
-import requests, json
+import requests, json, random
 
 
 def format_instagram_url(account_name):
