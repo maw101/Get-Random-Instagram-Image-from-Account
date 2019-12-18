@@ -1,4 +1,7 @@
 import requests, json, random
+# imports for displaying the image
+from PIL import Image
+from io import BytesIO
 
 
 def format_instagram_url(account_name):
@@ -50,3 +53,19 @@ def get_random_images_url(account_name):
 
 	random_images_json = get_random_images_json(timeline_media) # get the json for just one image
 	return get_image_url(random_images_json) # get the image url
+
+
+def display_image_at_url(images_url):
+	"""Fetches an Image from a given URL and displays it to the user."""
+	# request the image and display it once fetched
+	try:
+		# send a HTTP request to the server and save the HTTP 
+		# response in a response object called image_response
+		image_response = requests.get(images_url)
+		# raise exception if response not successful
+		image_response.raise_for_status()
+	except requests.exceptions.HTTPError as http_err:
+		print("HTTP Error Occurred:", http_err)
+	else:
+		img = Image.open(BytesIO(image_response.content))
+		img.show()
