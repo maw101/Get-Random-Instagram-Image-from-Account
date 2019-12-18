@@ -80,3 +80,8 @@ if __name__ == '__main__':
 	# get account name argument value
 	ACCOUNT_NAME = args.account_name[0]
 	print("Retrieving Random Image from Instagram Account @%s" % ACCOUNT_NAME)
+
+	# get a random images URL
+	images_url = get_random_images_url(ACCOUNT_NAME)
+	# fetch image at this URL and display it
+	display_image_at_url(images_url)
