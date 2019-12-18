@@ -24,3 +24,19 @@ def get_json(account_name):
 def get_timeline_media(json_page_data):
 	"""Gets all image media from an Instagram users JSON page data"""
 	return json_page_data['graphql']['user']['edge_owner_to_timeline_media']['edges'];
+
+
+def get_random_index(item_count):
+	"""Generates a random integer 0 (item_count-1) inclusive."""
+	return random.randint(0, (item_count - 1))
+
+
+def get_random_images_json(timeline_media):
+	"""Returns the JSON data for a random single Instagram images from a collection of images JSON."""
+	random_index = get_random_index(len(timeline_media))
+	return timeline_media[random_index]['node']
+
+
+def get_image_url(image_json):
+	"""Returns an images URL from an Instagram images JSON data."""
+	return image_json['display_url']
