@@ -40,3 +40,13 @@ def get_random_images_json(timeline_media):
 def get_image_url(image_json):
 	"""Returns an images URL from an Instagram images JSON data."""
 	return image_json['display_url']
+
+
+def get_random_images_url(account_name):
+	"""Returns a random Instagram images URL given an Instagram Account Name."""
+	# process json
+	page_json = get_json(account_name) # get json for the whole page
+	timeline_media = get_timeline_media(page_json) # get the json just for the images
+
+	random_images_json = get_random_images_json(timeline_media) # get the json for just one image
+	return get_image_url(random_images_json) # get the image url
