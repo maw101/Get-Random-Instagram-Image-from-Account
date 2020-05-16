@@ -1,9 +1,9 @@
 """
-Provides functions to get a random image URL of a given Instagram account and 
+Provides functions to get a random image URL of a given Instagram account and
 the facility to display this.
 
 This module provides functions to randomly get an images URL from a specified Instagram
-account - given as a command line argument. Functions also allow for displaying of an 
+account - given as a command line argument. Functions also allow for displaying of an
 image at a given URL.
 """
 
@@ -69,7 +69,7 @@ def display_image_at_url(images_url):
 	"""Fetches an Image from a given URL and displays it to the user."""
 	# request the image and display it once fetched
 	try:
-		# send a HTTP request to the server and save the HTTP 
+		# send a HTTP request to the server and save the HTTP
 		# response in a response object called image_response
 		image_response = requests.get(images_url)
 		# raise exception if response not successful
