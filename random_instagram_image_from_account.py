@@ -83,15 +83,15 @@ def display_image_at_url(images_url):
 
 if __name__ == '__main__':
     # parse command line arguments
-    parser = argparse.ArgumentParser(description='Parse Instagram Account Name')
-    parser.add_argument("account_name", nargs=1, help='Instagram Account Name')
-    args = parser.parse_args()
+    PARSER = argparse.ArgumentParser(description='Parse Instagram Account Name')
+    PARSER.add_argument("account_name", nargs=1, help='Instagram Account Name')
+    ARGS = PARSER.parse_args()
 
     # get account name argument value
-    ACCOUNT_NAME = args.account_name[0]
+    ACCOUNT_NAME = ARGS.account_name[0]
     print("Retrieving Random Image from Instagram Account @%s" % ACCOUNT_NAME)
 
     # get a random images URL
-    images_url = get_random_images_url(ACCOUNT_NAME)
+    IMAGE_URL = get_random_images_url(ACCOUNT_NAME)
     # fetch image at this URL and display it
-    display_image_at_url(images_url)
+    display_image_at_url(IMAGE_URL)
