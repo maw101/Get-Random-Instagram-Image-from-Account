@@ -36,7 +36,7 @@ def get_json(account_name):
 
 def get_timeline_media(json_page_data):
     """Gets all image media from an Instagram users JSON page data"""
-    return json_page_data['graphql']['user']['edge_owner_to_timeline_media']['edges'];
+    return json_page_data['graphql']['user']['edge_owner_to_timeline_media']['edges']
 
 
 def get_random_index(item_count):
