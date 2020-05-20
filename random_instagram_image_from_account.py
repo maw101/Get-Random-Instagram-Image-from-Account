@@ -7,12 +7,12 @@ Instagram account - given as a command line argument. Functions also allow for
 displaying of an image at a given URL.
 """
 
-
-import requests, json, random, argparse
-# imports for displaying the image
-from PIL import Image
-from io import BytesIO
-
+import json
+import argparse
+import random
+from io import BytesIO # for opening the image
+from PIL import Image # for displaying the image
+import requests
 
 def format_instagram_url(account_name):
     """Generates a URL to an Accounts JSON file"""
