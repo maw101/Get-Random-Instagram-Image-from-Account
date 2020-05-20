@@ -67,13 +67,13 @@ def get_random_images_url(account_name):
     return get_image_url(random_images_json) # get the image url
 
 
-def display_image_at_url(images_url):
+def display_image_at_url(url):
     """Fetches an Image from a given URL and displays it to the user."""
     # request the image and display it once fetched
     try:
         # send a HTTP request to the server and save the HTTP
         # response in a response object called image_response
-        image_response = requests.get(images_url)
+        image_response = requests.get(url)
         # raise exception if response not successful
         image_response.raise_for_status()
     except requests.exceptions.HTTPError as http_err:
