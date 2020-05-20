@@ -8,7 +8,10 @@ displaying of an image at a given URL.
 """
 
 
-import requests, json, random, argparse
+import requests
+import json
+import random
+import argparse
 # imports for displaying the image
 from PIL import Image
 from io import BytesIO
