@@ -25,13 +25,13 @@ def get_json(account_name):
     try:
         # send a HTTP request to the server and save
         # the HTTP response in a response object called r
-        r = requests.get(url)
+        request_response = requests.get(url)
         # raise exception if response not successful
-        r.raise_for_status()
+        request_response.raise_for_status()
     except requests.exceptions.HTTPError as http_err:
         print("HTTP Error Occurred:", http_err)
     else:
-        return json.loads(r.text)
+        return json.loads(request_response.text)
 
 
 def get_timeline_media(json_page_data):
