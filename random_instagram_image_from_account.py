@@ -2,9 +2,9 @@
 Provides functions to get a random image URL of a given Instagram account and
 the facility to display this.
 
-This module provides functions to randomly get an images URL from a specified Instagram
-account - given as a command line argument. Functions also allow for displaying of an
-image at a given URL.
+This module provides functions to randomly get an images URL from a specified 
+Instagram account - given as a command line argument. Functions also allow for 
+displaying of an image at a given URL.
 """
 
 
@@ -45,7 +45,8 @@ def get_random_index(item_count):
 
 
 def get_random_images_json(timeline_media):
-    """Returns the JSON data for a random single Instagram images from a collection of images JSON."""
+    """Returns the JSON data for a random single Instagram images from a 
+    collection of images JSON."""
     random_index = get_random_index(len(timeline_media))
     return timeline_media[random_index]['node']
 
@@ -58,10 +59,11 @@ def get_image_url(image_json):
 def get_random_images_url(account_name):
     """Returns a random Instagram images URL given an Instagram Account Name."""
     # process json
-    page_json = get_json(account_name) # get json for the whole page
-    timeline_media = get_timeline_media(page_json) # get the json just for the images
+    page_json = get_json(account_name) # get whole page json
+    timeline_media = get_timeline_media(page_json) # get image json
 
-    random_images_json = get_random_images_json(timeline_media) # get the json for just one image
+    # get a single images json
+    random_images_json = get_random_images_json(timeline_media) 
     return get_image_url(random_images_json) # get the image url
 
 
