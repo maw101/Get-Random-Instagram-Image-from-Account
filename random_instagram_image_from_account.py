@@ -43,7 +43,7 @@ def get_random_index(item_count):
 
 
 def get_random_images_json(timeline_media):
-    """Returns the JSON data for a random single Instagram images from a collection of images JSON."""
+    """Returns the JSON data for a random single Instagram image from a collection of images JSON."""
     random_index = get_random_index(len(timeline_media))
     return timeline_media[random_index]['node']
 
