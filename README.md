@@ -11,14 +11,14 @@ Clone or download the project to your machine.
 
 Then in a terminal window run:
 
-```
+```sh
 python3 random_instagram_image_from_account.py <account_name>
 ```
 where `<account_name>` is the Instagram account username you wish to fetch from.
 
 ### Example Usage
 1) Fetching from NASAs Instagram Account: 
-```
+```sh
 python3 random_instagram_image_from_account.py nasa
 ```
 
