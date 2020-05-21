@@ -2,7 +2,7 @@
 Get and display a random image from a given Instagram Account
 
 ## Requirements
-* [Python 3](https://www.python.org/downloads/) (requests, json, random, argparse, PIL, io libraries)
+  * [Python 3](https://www.python.org/downloads/) (requests, json, random, argparse, PIL, io libraries)
 
 ## Usage
 Once the requirements are satisfied:
