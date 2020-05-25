@@ -1,5 +1,5 @@
 """
-Provides functions to get a random image URL of a given Instagram account and 
+Provides functions to get a random image URL of a given Instagram account and
 the facility to display this.
 
 This module provides functions to randomly get an images URL from a specified
@@ -15,12 +15,26 @@ from PIL import Image # for displaying the image
 import requests
 
 def format_instagram_url(account_name):
-    """Generates a URL to an Accounts JSON file."""
+    """Generates a URL to an Accounts JSON file.
+
+        Args:
+    		account_name (str): the Instagram account name
+    	Returns:
+    		str: formatted URL to the JSON file for the Instagram account
+
+    """
     return f'https://www.instagram.com/{account_name}/?__a=1'
 
 
 def get_json(account_name):
-    """Fetches JSON content for a given Instagram Account."""
+    """Fetches JSON content for a given Instagram Account.
+
+        Args:
+    		account_name (str): the Instagram account name
+    	Returns:
+    		json object: Instagram accounts page JSON
+
+    """
     url = format_instagram_url(account_name)
     try:
         # send a HTTP request to the server and save
@@ -35,28 +49,64 @@ def get_json(account_name):
 
 
 def get_timeline_media(json_page_data):
-    """Gets all image media from an Instagram users JSON page data."""
+    """Gets all image media from an Instagram users JSON page data.
+
+        Args:
+    		json_page_data (json object): Instagram accounts page JSON
+    	Returns:
+    		collection of all timeline media from the page
+
+    """
     return json_page_data['graphql']['user']['edge_owner_to_timeline_media']['edges']
 
 
 def get_random_index(item_count):
-    """Generates a random integer 0 (item_count-1) inclusive."""
+    """Generates a random integer 0 (item_count-1) inclusive.
+
+        Args:
+    		item_count (int): upper bound (non-inclusive) for random range
+    	Returns:
+    		int: a random integer in range [0, item_count)
+
+    """
     return random.randint(0, (item_count - 1))
 
 
 def get_random_images_json(timeline_media):
-    """Returns the JSON data for a random single Instagram image from a collection of images JSON."""
+    """Returns the JSON data for a random single Instagram image from a
+    collection of images JSON.
+
+        Args:
+    		timeline_media: collection of all timeline media from the page
+    	Returns:
+    		single instance of a timeline media item
+
+    """
     random_index = get_random_index(len(timeline_media))
     return timeline_media[random_index]['node']
 
 
 def get_image_url(image_json):
-    """Returns an images URL from an Instagram images JSON data."""
+    """Returns an images URL from an Instagram images JSON data.
+
+        Args:
+    		image_json (json object): JSON data for a given media instance
+    	Returns:
+    		str: the URL for the media instance
+
+    """
     return image_json['display_url']
 
 
 def get_random_images_url(account_name):
-    """Returns a random Instagram images URL given an Instagram Account Name."""
+    """Returns a random Instagram images URL given an Instagram Account Name.
+
+        Args:
+    		account_name (str): the name of the Instagram account
+    	Returns:
+    		str: a randomly chosen media instance's URL
+
+    """
     # process json
     page_json = get_json(account_name) # get whole page json
     timeline_media = get_timeline_media(page_json) # get image json
@@ -67,7 +117,12 @@ def get_random_images_url(account_name):
 
 
 def display_image_at_url(url):
-    """Fetches an Image from a given URL and displays it to the user."""
+    """Fetches an Image from a given URL and displays it to the user.
+
+        Args:
+    		url (str): the URL for the given media instance
+
+    """
     # request the image and display it once fetched
     try:
         # send a HTTP request to the server and save the HTTP
